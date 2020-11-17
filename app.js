@@ -1,4 +1,3 @@
-
 $("#rando").on("click", function () {
   var page = $(this).attr("movie-page");
   var random = Math.floor((Math.random(page) * 10) + 1);
@@ -55,4 +54,3 @@ $("#drink").on("click", function () {
     }
   });
 });
-
