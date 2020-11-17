@@ -1,9 +1,10 @@
 $("#rando").on("click", function () {
   var page = $(this).attr("movie-page");
-  var random = Math.floor((Math.random(page) * 10) + 1);
+  var random = Math.floor((Math.random(page) * 20) + 1);
   var queryURL =
-    "https://api.themoviedb.org/3/movie/top_rated?api_key=2a6cff3385ccb1a29d114542fbee0918&language=en-US&page=" +
+    "https://api.themoviedb.org/3/movie/now_playing?api_key=2a6cff3385ccb1a29d114542fbee0918&language=en-US&page=" +
     random;
+    // 2a6cff3385ccb1a29d114542fbee0918
   $.ajax({
     url: queryURL,
     method: "GET",
