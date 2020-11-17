@@ -9,6 +9,7 @@ $("#rando").on("click", function () {
     method: "GET",
   }).then(function (response) {
     console.log(response);
+    $('#movies-here').empty();
     for (var i = 0; i < 1; i++) {
       var imgURL =
         "https://image.tmdb.org/t/p/w200/" + response.results[i].poster_path;
@@ -37,6 +38,7 @@ $("#clear-btn").on("click", function() {
       method: "GET",
     }).then(function (response) {
       console.log(response);
+      $('#movies-here').empty();
       for (var i = 0; i < 1; i++) {
         // var imgURL =
         //   "https://image.tmdb.org/t/p/w200/" + response.results[i].poster_path;
