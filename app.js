@@ -44,7 +44,7 @@ $("#clear-btn").on("click", function() {
         const $name = $("<h2>").text("Name: " + response.drinks[i].strDrink);
         const $alch = $("<h2>").text( response.drinks[i].strAlcoholic);
         const $drink = $("<img>").attr("src", response.drinks[i].strDrinkThumb);
-        $drinkdiv.append($name, $drink, $alch);
+        $drinkdiv.append($name, $alch, $drink);
         $("#movies-here").prepend($drinkdiv);
       }
     });
