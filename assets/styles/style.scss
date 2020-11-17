@@ -1,0 +1,69 @@
+html {
+    // background-color: #5f45bb;
+    // background-image: linear-gradient(to bottom right, #180cac, #d054e4);
+    // color: #fff;
+    font-family: "Quicksand", sans-serif;
+    font-size: 16px;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+    min-height: 100vh;
+    min-width: 300px;
+    overflow-x: hidden;
+    // text-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+    }
+
+.content {
+    min-height: 100vh;
+    position: relative;
+    display: grid;
+    grid-template-columns: 2fr 25vw 1fr 25vw 2fr;
+    grid-template-rows: 10% 90%;
+    padding-bottom: 3rem;
+    // background-image: linear-gradient(to bottom right, rgb(90, 62, 62), #eee);
+}
+
+.header {
+    grid-area: 1 / 1 / 2 / 6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+}
+
+.drink-card {
+    grid-area: 2 / 2 / 3 / 3;
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-around;
+    align-items: center;
+    gap: 3rem;
+}
+
+.movie-card {
+    grid-area: 2 / 4 / 3 / 5;
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-around;
+    align-items: center;
+    gap: 3rem;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 3rem;
+    p {
+        text-align: center
+    }
+}
+
+.bold-text {
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 20px;
+}
+
