@@ -12,7 +12,7 @@ $(".movie-btn").on("click", function () {
   }).then(function (response) {
     console.log(response);
     $('.movie-info-wrapper').empty();
-    $('#movieP').empty();
+    $('#movie-poster').empty();
     for (var i = 0; i < 1; i++) {
       var imgURL =
         "https://image.tmdb.org/t/p/w200/" + response.results[i].poster_path;
@@ -50,7 +50,7 @@ $(".drink-btn").on("click", function () {
   }).then(function (response) {
     console.log(response);
     $('.drink-info-wrapper').empty();
-    $('#drinkImg').empty();
+    $('#drink-img').empty();
     for (var i = 0; i < 1; i++) {
       // var imgURL =
       //   "https://image.tmdb.org/t/p/w200/" + response.results[i].poster_path;
