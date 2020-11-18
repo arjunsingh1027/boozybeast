@@ -23,7 +23,7 @@ $(".movie-btn").on("click", function () {
       const $poster = $("<img>").attr("src", imgURL);
       $moviediv.append($title, $plot);
       $(".movie-info-wrapper").prepend($moviediv);
-      $("#movieP").prepend($poster);  
+      $("#movie-poster").prepend($poster);  
       $poster.wrap($("<a>").attr("href", "https://www.youtube.com/results?search_query=" + (trailer) + "+trailer"));
     }
   });
@@ -60,7 +60,7 @@ $(".drink-btn").on("click", function () {
       const $drink = $("<img>").attr("src", response.drinks[i].strDrinkThumb);
       $drinkdiv.append($name);
       $(".drink-info-wrapper").prepend($drinkdiv);
-      $("#drinkImg").prepend($drink);
+      $("#drink-img").prepend($drink);
     }
   });
 });
