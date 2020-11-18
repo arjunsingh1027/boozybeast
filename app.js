@@ -34,19 +34,6 @@ $(".btn-wrapper").on("click", function (e) {
   e.preventDefault();
 });
 
-// $(".base").on("click",function() { 
-//   var baseingredient = $("#baseingredient").val();
-//   var queryURL = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${baseingredient}`
-   
-//   $.ajax({
-//     url: queryURL,
-//     method: "GET",
-//   }).then(function (response) {
-//     console.log(response);
-
-
-
-
 $(".drink-btn").on("click", function () {
   // var page = $(this).attr("movie-page");
   // var random = Math.floor((Math.random(page) * 10) + 1);
