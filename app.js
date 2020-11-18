@@ -46,17 +46,27 @@ $(".drink-btn").on("click", function () {
   }).then(function (response) {
     console.log(response);
     $('.drink-info-wrapper').empty();
-    $('#drinkImg').empty();
-    for (var i = 0; i < 1; i++) {
-      // var imgURL =
-      //   "https://image.tmdb.org/t/p/w200/" + response.results[i].poster_path;
-      const $drinkdiv = $("<div>");
-      const $name = $("<h2>").text("Name: " + response.drinks[i].strDrink);
-      // const $alch = $("<h2>").text(response.drinks[i].strAlcoholic);
-      const $drink = $("<img>").attr("src", response.drinks[i].strDrinkThumb);
-      $drinkdiv.append($name);
-      $(".drink-info-wrapper").prepend($drinkdiv);
-      $("#drinkImg").prepend($drink);
-    }
+    $('#drink-img').empty();
+
+
+    const drink = response.drinks[Math.floor((Math.random() * response.drinks.length))];
+    const $drinkdiv = $("<div>");
+    const $name = $("<h2>").text("Name: " + drink.strDrink);
+    const $drink = $("<img>").attr("src", drink.strDrinkThumb);
+    $drinkdiv.append($name);
+    $(".drink-info-wrapper").prepend($drinkdiv);
+    $("#drink-img").prepend($drink);
+
+    // for (var i = 0; i < 1; i++) {
+    //   // // var imgURL =
+    //   // //   "https://image.tmdb.org/t/p/w200/" + response.results[i].poster_path;
+    //   // const $drinkdiv = $("<div>");
+    //   // const $name = $("<h2>").text("Name: " + response.drinks[i].strDrink);
+    //   // // const $alch = $("<h2>").text(response.drinks[i].strAlcoholic);
+    //   // const $drink = $("<img>").attr("src", response.drinks[i].strDrinkThumb);
+    //   // $drinkdiv.append($name);
+    //   // $(".drink-info-wrapper").prepend($drinkdiv);
+    //   // $("#drinkImg").prepend($drink);
+    // }
   });
 });
