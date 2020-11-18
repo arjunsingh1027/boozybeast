@@ -12,7 +12,7 @@ $(".movie-btn").on("click", function () {
   }).then(function (response) {
     console.log(response);
     $('.movie-info-wrapper').empty();
-    $('#movieP').empty();
+    $('#movie-poster').empty();
     for (var i = 0; i < 1; i++) {
       var imgURL =
         "https://image.tmdb.org/t/p/w200/" + response.results[i].poster_path;
@@ -23,7 +23,7 @@ $(".movie-btn").on("click", function () {
       const $poster = $("<img>").attr("src", imgURL);
       $moviediv.append($title, $plot);
       $(".movie-info-wrapper").prepend($moviediv);
-      $("#movieP").prepend($poster);  
+      $("#movie-poster").prepend($poster);  
       $poster.wrap($("<a>").attr("href", "https://www.youtube.com/results?search_query=" + (trailer) + "+trailer"));
     }
   });
@@ -50,7 +50,7 @@ $(".drink-btn").on("click", function () {
   }).then(function (response) {
     console.log(response);
     $('.drink-info-wrapper').empty();
-    $('#drinkImg').empty();
+    $('#drink-img').empty();
     for (var i = 0; i < 1; i++) {
       // var imgURL =
       //   "https://image.tmdb.org/t/p/w200/" + response.results[i].poster_path;
@@ -60,7 +60,7 @@ $(".drink-btn").on("click", function () {
       const $drink = $("<img>").attr("src", response.drinks[i].strDrinkThumb);
       $drinkdiv.append($name);
       $(".drink-info-wrapper").prepend($drinkdiv);
-      $("#drinkImg").prepend($drink);
+      $("#drink-img").prepend($drink);
     }
   });
 });
