@@ -18,13 +18,17 @@ $(".movie-btn").on("click", function () {
         "https://image.tmdb.org/t/p/w200/" + response.results[i].poster_path;
       const $moviediv = $("<div>");
       const $title = $("<h1>").text("Title: " + response.results[i].title);
+      const trailer = response.results[i].title;
       const $plot = $("<h3>").text("Plot: " + response.results[i].overview);
       const $poster = $("<img>").attr("src", imgURL);
       $moviediv.append($title, $plot);
       $(".movie-info-wrapper").prepend($moviediv);
-      $("#movieP").prepend($poster);
+      $("#movieP").prepend($poster);  
+      $poster.wrap($("<a>").attr("href", "https://www.youtube.com/results?search_query=" + (trailer) + "+trailer"));
     }
   });
+
+
 });
 
 // $("#clear-btn").on("click", function () {
@@ -59,3 +63,4 @@ $(".drink-btn").on("click", function () {
     }
   });
 });
+
