@@ -41,8 +41,9 @@ $(".btn-wrapper").on("click", function (e) {
 $(".drink-btn").on("click", function () {
   // var page = $(this).attr("movie-page");
   // var random = Math.floor((Math.random(page) * 10) + 1);
+  var baseingredient = $("#baseingredient").val();
   var queryURL =
-    "https://www.thecocktaildb.com/api/json/v1/1/random.php";
+  `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${baseingredient}`;
   $.ajax({
     url: queryURL,
     method: "GET",
@@ -55,12 +56,11 @@ $(".drink-btn").on("click", function () {
       //   "https://image.tmdb.org/t/p/w200/" + response.results[i].poster_path;
       const $drinkdiv = $("<div>");
       const $name = $("<h2>").text("Name: " + response.drinks[i].strDrink);
-      const $alch = $("<h2>").text(response.drinks[i].strAlcoholic);
+      // const $alch = $("<h2>").text(response.drinks[i].strAlcoholic);
       const $drink = $("<img>").attr("src", response.drinks[i].strDrinkThumb);
-      $drinkdiv.append($name, $alch);
+      $drinkdiv.append($name);
       $(".drink-info-wrapper").prepend($drinkdiv);
       $("#drinkImg").prepend($drink);
     }
   });
 });
-
