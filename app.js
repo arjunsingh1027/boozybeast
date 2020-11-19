@@ -76,7 +76,7 @@ $(".drink-btn").on("click", function () {
     const drinkID = drink.idDrink
 
     $.get("https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + drinkID, function (data) {
-      console.log(data)
+      // console.log(data)
       const $pglass = $("<p>").text("Preferred Glass: " + data.drinks[0].strGlass)
       const $pinstruct = $("<p>").text("Instructions: " + data.drinks[0].strInstructions)
       $(".drink-info-wrapper").append($pglass, $pinstruct);
@@ -89,9 +89,20 @@ $(".drink-btn").on("click", function () {
 let drinkName;
 let savedDrinks = []
 $(".save-drink-btn").on("click", function (e) {
-  // localStorage.getItem("savedDrinks");
   e.preventDefault();
   if (!drinkName || savedDrinks.includes(drinkName)) return ;
   savedDrinks.push(drinkName);
   localStorage.setItem("savedDrinks", JSON.stringify(savedDrinks));
+  getSavedDrinks();
 })
+
+function getSavedDrinks(){
+  const favoriteDrinks = localStorage.getItem("savedDrinks");
+  console.log(favoriteDrinks);
+  const drinkArr = JSON.parse(favoriteDrinks);    
+  $(".saved-drinks").empty();
+  for (let i = 0; i < drinkArr.length; i++) {
+    let currentDrink = drinkArr[i];
+    ($("<p>").text(`-${currentDrink}`)).appendTo($(".saved-drinks"))
+  }
+}
