@@ -54,6 +54,12 @@ $(".drink-btn").on("click", function () {
     $drinkdiv.append($name);
     $(".drink-info-wrapper").prepend($drinkdiv);
     $("#drink-img").prepend($drink);
+    $drink.wrap(
+      $("<a>").attr(
+        "href",
+        "https://www.google.com/search?q=" + drinkName + " cocktail recipe"
+      )
+    );
     const drinkID = drink.idDrink
 
     $.get( "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + drinkID, function( data ) {
