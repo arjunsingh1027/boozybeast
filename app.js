@@ -17,11 +17,11 @@ $(".movie-btn").on("click", function () {
       response.results[Math.floor(Math.random() * response.results.length)];
     const $moviediv = $("<div>");
     var imgURL = "https://image.tmdb.org/t/p/w200/" + movie.poster_path;
-    const $title = $("<h1>").text("Title: " + movie.title);
+    const $title = $("<h2>").text(movie.title);
     const trailer = movie.title;
-    const $plot = $("<h3>").text("Plot: " + movie.overview);
+    const $plot = $("<h3>").text("\t" + movie.overview);
     const $poster = $("<img>").attr("src", imgURL);
-    $moviediv.append($title, $plot);
+    $moviediv.append($title, $('<br>'), $plot);
     $(".movie-info-wrapper").prepend($moviediv);
     $("#movie-poster").prepend($poster);
     $poster.wrap(
