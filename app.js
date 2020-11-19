@@ -18,14 +18,9 @@ $(".movie-btn").on("click", function () {
     const $moviediv = $("<div>");
     var imgURL = "https://image.tmdb.org/t/p/w200/" + movie.poster_path;
     const $title = $("<h1>").text("Title: " + movie.title);
-    const trailer = movie.title;
+    trailer = movie.title;
     const $plot = $("<h3>").text("Plot: " + movie.overview);
     const $poster = $("<img>").attr("src", imgURL);
-    $(".save-movie-btn").on("click", function (e) {
-      e.preventDefault();
-      let now = e
-      localStorage.setItem(trailer, JSON.stringify(now));
-    })
     $moviediv.append($title, $plot);
     $(".movie-info-wrapper").prepend($moviediv);
     $("#movie-poster").prepend($poster);
@@ -37,6 +32,16 @@ $(".movie-btn").on("click", function () {
     );
   });
 });
+
+let trailer;
+let savedMovies = []
+$(".save-movie-btn").on("click", function (e) {
+  e.preventDefault();
+  if (!trailer || savedMovies.includes(trailer)) return ;
+  savedMovies.push(trailer);
+  localStorage.setItem("savedMovies", JSON.stringify(savedMovies));
+});
+
 $(".btn-wrapper").on("click", function (e) {
   e.preventDefault();
 });
@@ -71,7 +76,7 @@ $(".drink-btn").on("click", function () {
     const drinkID = drink.idDrink
 
     $.get("https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + drinkID, function (data) {
-      console.log(data)
+      // console.log(data)
       const $pglass = $("<p>").text("Preferred Glass: " + data.drinks[0].strGlass)
       const $pinstruct = $("<p>").text("Instructions: " + data.drinks[0].strInstructions)
       $(".drink-info-wrapper").append($pglass, $pinstruct);
@@ -84,9 +89,20 @@ $(".drink-btn").on("click", function () {
 let drinkName;
 let savedDrinks = []
 $(".save-drink-btn").on("click", function (e) {
-  // localStorage.getItem("savedDrinks");
   e.preventDefault();
   if (!drinkName || savedDrinks.includes(drinkName)) return ;
   savedDrinks.push(drinkName);
   localStorage.setItem("savedDrinks", JSON.stringify(savedDrinks));
+  getSavedDrinks();
 })
+
+function getSavedDrinks(){
+  const favoriteDrinks = localStorage.getItem("savedDrinks");
+  console.log(favoriteDrinks);
+  const drinkArr = JSON.parse(favoriteDrinks);    
+  $(".saved-drinks").empty();
+  for (let i = 0; i < drinkArr.length; i++) {
+    let currentDrink = drinkArr[i];
+    ($("<p>").text(`-${currentDrink}`)).appendTo($(".saved-drinks"))
+  }
+}
