@@ -18,14 +18,9 @@ $(".movie-btn").on("click", function () {
     const $moviediv = $("<div>");
     var imgURL = "https://image.tmdb.org/t/p/w200/" + movie.poster_path;
     const $title = $("<h1>").text("Title: " + movie.title);
-    const trailer = movie.title;
+    trailer = movie.title;
     const $plot = $("<h3>").text("Plot: " + movie.overview);
     const $poster = $("<img>").attr("src", imgURL);
-    $(".save-movie-btn").on("click", function (e) {
-      e.preventDefault();
-      let now = e
-      localStorage.setItem(trailer, JSON.stringify(now));
-    })
     $moviediv.append($title, $plot);
     $(".movie-info-wrapper").prepend($moviediv);
     $("#movie-poster").prepend($poster);
@@ -37,6 +32,16 @@ $(".movie-btn").on("click", function () {
     );
   });
 });
+
+let trailer;
+let savedMovies = []
+$(".save-movie-btn").on("click", function (e) {
+  e.preventDefault();
+  if (!trailer || savedMovies.includes(trailer)) return ;
+  savedMovies.push(trailer);
+  localStorage.setItem("savedMovies", JSON.stringify(savedMovies));
+});
+
 $(".btn-wrapper").on("click", function (e) {
   e.preventDefault();
 });
