@@ -50,6 +50,7 @@ $(".drink-btn").on("click", function () {
       response.drinks[Math.floor(Math.random() * response.drinks.length)];
     const $drinkdiv = $("<div>");
     const $name = $("<h2>").text("Name: " + drink.strDrink);
+    const drinkName = drink.strDrink;
     const $drink = $("<img>").attr("src", drink.strDrinkThumb);
     $drinkdiv.append($name);
     $(".drink-info-wrapper").prepend($drinkdiv);
