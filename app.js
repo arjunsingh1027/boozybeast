@@ -40,7 +40,19 @@ $(".save-movie-btn").on("click", function (e) {
   if (!trailer || savedMovies.includes(trailer)) return ;
   savedMovies.push(trailer);
   localStorage.setItem("savedMovies", JSON.stringify(savedMovies));
+  getSavedMovies();
 });
+
+function getSavedMovies(){
+  const favoriteMovies = localStorage.getItem("savedMovies");
+  console.log(favoriteMovies);
+  const movieArr = JSON.parse(favoriteMovies);    
+  $(".saved-movies").empty();
+  for (let i = 0; i < movieArr.length; i++) {
+    let currentMovie = movieArr[i];
+    ($("<p>").text(`-${currentMovie}`)).appendTo($(".saved-movies"))
+  }
+}
 
 $(".btn-wrapper").on("click", function (e) {
   e.preventDefault();
