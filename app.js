@@ -133,3 +133,8 @@ function getSavedDrinks() {
     $("<p>").html(drinkLink).appendTo($(".saved-drinks"));
   }
 }
+
+$('.clear-btn').click(function(e) {
+  $('.saved-drinks').empty();
+  $('.saved-movies').empty();
+})
