@@ -22,11 +22,11 @@ $(".movie-btn").on("click", function () {
       response.results[Math.floor(Math.random() * response.results.length)];
     const $moviediv = $("<div>");
     var imgURL = "https://image.tmdb.org/t/p/w200/" + movie.poster_path;
-    const $title = $("<h1>").text("Title: " + movie.title);
-    const $plot = $("<h3>").text("Plot: " + movie.overview);
+    const $title = $("<h2>").text(movie.title);
+    const $plot = $("<h3>").text(movie.overview);
     const $poster = $("<img>").attr("src", imgURL);
     // adding movie infor to page
-    $moviediv.append($title, $plot);
+    $moviediv.append($title, $('<hr>'), $plot);
     $(".movie-info-wrapper").prepend($moviediv);
     $("#movie-poster").prepend($poster);
     // search youtube for trailer of the movie by clicking on the poster
@@ -60,7 +60,7 @@ function getSavedMovies() {
   for (let i = 0; i < movieArr.length; i++) {
     let currentMovie = movieArr[i];
     const movieLink = $("<a>")
-    movieLink.text(`-${currentMovie}`)
+    movieLink.text(`- ${currentMovie}`)
     movieLink.attr("href", "https://www.imdb.com/find?q=" + currentMovie + "&ref_=nv_sr_sm")
     $("<p>").html(movieLink).appendTo($(".saved-movies"));
   }
@@ -83,7 +83,7 @@ $(".drink-btn").on("click", function () {
     const drink =
       response.drinks[Math.floor(Math.random() * response.drinks.length)];
     const $drinkdiv = $("<div>");
-    const $name = $("<h2>").text("Name: " + drink.strDrink);
+    const $name = $("<h2>").text(drink.strDrink);
     drinkName = drink.strDrink;
     const $drink = $("<img>").attr("src", drink.strDrinkThumb);
     $drinkdiv.append($name);
@@ -101,8 +101,8 @@ $(".drink-btn").on("click", function () {
     // adding instructions to page    
     const drinkID = drink.idDrink
     $.get("https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + drinkID, function (data) {
-      const $pglass = $("<p>").text("Preferred Glass: " + data.drinks[0].strGlass)
-      const $pinstruct = $("<p>").text("Instructions: " + data.drinks[0].strInstructions)
+      const $pglass = $("<p>").text("— " + data.drinks[0].strGlass)
+      const $pinstruct = $("<p>").text("— " + data.drinks[0].strInstructions)
       $(".drink-info-wrapper").append($pglass, $pinstruct);
     });
   });
@@ -128,7 +128,7 @@ function getSavedDrinks() {
   for (let i = 0; i < drinkArr.length; i++) {
     let currentDrink = drinkArr[i];
     const drinkLink = $("<a>")
-    drinkLink.text(`-${currentDrink}`)
+    drinkLink.text(`- ${currentDrink}`)
     drinkLink.attr("href", "https://www.google.com/search?q=" + currentDrink + " cocktail recipe")
     $("<p>").html(drinkLink).appendTo($(".saved-drinks"));
   }
