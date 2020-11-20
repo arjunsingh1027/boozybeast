@@ -21,7 +21,7 @@ html {
   position: relative;
   display: grid;
   grid-template-columns: 2fr 25vw 1fr 25vw 2fr;
-  grid-template-rows: 10% 850px auto;
+  grid-template-rows: 10% 800px auto;
   padding-bottom: 6rem;
   background-image: linear-gradient(
     to bottom,
@@ -52,6 +52,9 @@ html {
   border-radius: 8px;
   padding: 2rem;
   box-shadow: 3px 3px 5px 6px rgb(36, 36, 36);
+  img {
+    border: 5px solid black;
+  }
 }
 
 .movie-card {
@@ -95,7 +98,7 @@ html {
 }
 
 h2 {
-  font-size: 20px;
+  font-size: 24px;
 }
 
 .drink-img-wrapper {
@@ -140,3 +143,35 @@ h2 {
   display: block;
 }
 
+.save-btn {
+    border: none;
+    font-size: 1.5rem;
+    border-radius: 2px;
+    position: relative;
+    bottom: -.15em;
+    &:hover {
+        cursor: pointer;
+    }
+    &:active {
+        background-color: #ddd;
+    }
+    &:focus {
+        outline: none;
+    }
+}
+
+// .genres, .base {
+//     font-family: 'Yesteryear', cursive;
+// }
+hr {
+    background-color: black;
+    border: none;
+}
+
+// .drink-info-wrapper {
+//     margin-top: 25%;
+// }
+
+.clear-btn {
+    margin-top: .5rem;
+}

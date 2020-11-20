@@ -18,8 +18,8 @@ html {
   display: grid;
   -ms-grid-columns: 2fr 25vw 1fr 25vw 2fr;
       grid-template-columns: 2fr 25vw 1fr 25vw 2fr;
-  -ms-grid-rows: 10% 850px auto;
-      grid-template-rows: 10% 850px auto;
+  -ms-grid-rows: 10% 800px auto;
+      grid-template-rows: 10% 800px auto;
   padding-bottom: 6rem;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#500c0c), to(#363636));
   background-image: linear-gradient(to bottom, #500c0c, #363636);
@@ -68,6 +68,10 @@ html {
   padding: 2rem;
   -webkit-box-shadow: 3px 3px 5px 6px #242424;
           box-shadow: 3px 3px 5px 6px #242424;
+}
+
+.drink-card img {
+  border: 5px solid black;
 }
 
 .movie-card {
@@ -129,7 +133,7 @@ html {
 }
 
 h2 {
-  font-size: 20px;
+  font-size: 24px;
 }
 
 .drink-img-wrapper {
@@ -186,5 +190,34 @@ h2 {
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+.save-btn {
+  border: none;
+  font-size: 1.5rem;
+  border-radius: 2px;
+  position: relative;
+  bottom: -.15em;
+}
+
+.save-btn:hover {
+  cursor: pointer;
+}
+
+.save-btn:active {
+  background-color: #ddd;
+}
+
+.save-btn:focus {
+  outline: none;
+}
+
+hr {
+  background-color: black;
+  border: none;
+}
+
+.clear-btn {
+  margin-top: .5rem;
 }
 /*# sourceMappingURL=style.css.map */
