@@ -1,56 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Boozy and the beast</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css"
-    />
-    <link rel="stylesheet" href="assets/styles/style.css" />
-  </head>
-  <body>
-    <div class="content">
-      <header class="header">
-        <h1>Boozy and the Beast</h1>
-      </header>
-      <section class="drink-card">
-        <div class="drink-input-wrapper">
-          <select class="base" id="baseingredient">
-            <option value="gin">Gin</option>
-            <option value="Vodka">Vodka</option>
-            <option value="Scotch">Scotch</option>
-            <option value="Brandy">Brandy</option>
-            <option value="Rum">Rum</option>
-          </select>
-          <button class="drink-btn">New Drink</button>
-          <button class="save-drink-btn">Save Your Drink</button>
-        </div>
-        <div id="drink-img"></div>
-        <div class="drink-info-wrapper"></div>
-      </section>
-      <section class="movie-card">
-        <div class="movie-input-wrapper">
-          <select name="genres" id="genres">
-            <option value="28">Action</option>
-            <option value="35">Comedy</option>
-            <option value="878">Science Fiction</option>
-            <option value="10749">Romance</option>
-            <option value="18">Drama</option>
-            <option value="27">Horror</option>
-          </select>
-          <button class="movie-btn" movie-page="1">New Movie</button>
-          <button class="save-movie-btn">Save Your Movie</button>
 
-        </div>
-        <div id="movie-poster"></div>
-        <div class="movie-info-wrapper"></div>
-      </section>
-      <footer class="footer">
-        <p>Made by Arjun, Kendra, Nick, and Ricky</p>
-      </footer>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="app.js"></script>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <title>Boozy and the beast</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css" />
+  <link rel="stylesheet" href="assets/styles/style.css" />
+</head>
+
+<body>
+  <div class="content">
+    <header class="header">
+      <h1>Boozy and the Beast</h1>
+      <div class="dropdown">
+        <button> Saved Items </button>
+        <div class="dropdown-content">
+          <div class="saved-movies-wrapper">
+            <h2>Movies</h2>
+            <div class="saved-movies"></div>
+
+            <!-- <p>Prisoners</p> -->
+            <br>
+          </div>
+          <div class="saved-drinks-wrapper">
+            <h2>Drinks</h2>
+            <div class="saved-drinks"></div>
+            <!-- <p>Margarita</p> -->
+          </div>
+        </div>     
+         <button class="clear-btn">Clear</button>
+      </div>
+    </header>
+    <section class="drink-card">
+      <div class="drink-input-wrapper">
+        <select class="base" id="baseingredient">
+          <option value="gin">Gin</option>
+          <option value="Vodka">Vodka</option>
+          <option value="Scotch">Scotch</option>
+          <option value="Brandy">Brandy</option>
+          <option value="Rum">Rum</option>
+        </select>
+        <button class="drink-btn">New Drink</button>
+        <button class="save-drink-btn">Save Your Drink</button>
+      </div>
+      <div id="drink-img"></div>
+      <div class="drink-info-wrapper"></div>
+    </section>
+    <section class="movie-card">
+      <div class="movie-input-wrapper">
+        <select name="genres" id="genres">
+          <option value="28">Action</option>
+          <option value="35">Comedy</option>
+          <option value="878">Science Fiction</option>
+          <option value="10749">Romance</option>
+          <option value="18">Drama</option>
+          <option value="27">Horror</option>
+        </select>
+        <button class="movie-btn" movie-page="1">New Movie</button>
+        <button class="save-movie-btn">Save Your Movie</button>
+
+      </div>
+      <div id="movie-poster"></div>
+      <div class="movie-info-wrapper"></div>
+    </section>
+    <footer class="footer">
+      <p>Made by Arjun, Kendra, Nick, and Ricky</p>
+    </footer>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="app.js"></script>
+</body>
+
 </html>
