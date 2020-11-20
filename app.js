@@ -59,7 +59,10 @@ function getSavedMovies() {
   $(".saved-movies").empty();
   for (let i = 0; i < movieArr.length; i++) {
     let currentMovie = movieArr[i];
-    ($("<p>").text(`-${currentMovie}`)).appendTo($(".saved-movies"))
+    const movieLink = $("<a>")
+    movieLink.text(`-${currentMovie}`)
+    movieLink.attr("href", "https://www.imdb.com/find?q=" + currentMovie + "&ref_=nv_sr_sm")
+    $("<p>").html(movieLink).appendTo($(".saved-movies"));
   }
 }
 
@@ -124,6 +127,9 @@ function getSavedDrinks() {
   $(".saved-drinks").empty();
   for (let i = 0; i < drinkArr.length; i++) {
     let currentDrink = drinkArr[i];
-    ($("<p>").text(`-${currentDrink}`)).appendTo($(".saved-drinks"))
+    const drinkLink = $("<a>")
+    drinkLink.text(`-${currentDrink}`)
+    drinkLink.attr("href", "https://www.google.com/search?q=" + currentDrink + " cocktail recipe")
+    $("<p>").html(drinkLink).appendTo($(".saved-drinks"));
   }
 }
