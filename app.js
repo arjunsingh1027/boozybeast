@@ -21,6 +21,11 @@ $(".movie-btn").on("click", function () {
     const trailer = movie.title;
     const $plot = $("<h3>").text("Plot: " + movie.overview);
     const $poster = $("<img>").attr("src", imgURL);
+    $(".save-movie-btn").on("click", function (e) {
+      e.preventDefault();
+      let now = e
+      localStorage.setItem(trailer, JSON.stringify(now));
+    })
     $moviediv.append($title, $plot);
     $(".movie-info-wrapper").prepend($moviediv);
     $("#movie-poster").prepend($poster);
@@ -50,6 +55,7 @@ $(".drink-btn").on("click", function () {
       response.drinks[Math.floor(Math.random() * response.drinks.length)];
     const $drinkdiv = $("<div>");
     const $name = $("<h2>").text("Name: " + drink.strDrink);
+    drinkName = drink.strDrink;
     const $drink = $("<img>").attr("src", drink.strDrinkThumb);
     $drinkdiv.append($name);
     $(".drink-info-wrapper").prepend($drinkdiv);
@@ -60,15 +66,27 @@ $(".drink-btn").on("click", function () {
         "https://www.google.com/search?q=" + drinkName + " cocktail recipe"
       )
     );
+
+
     const drinkID = drink.idDrink
 
-    $.get( "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + drinkID, function( data ) {
-  console.log(data)
-  const $pglass = $("<p>").text("Preferred Glass: " + data.drinks[0].strGlass)
-  const $pinstruct = $("<p>").text("Instructions: " + data.drinks[0].strInstructions)
-  $(".drink-info-wrapper").append($pglass, $pinstruct);
+    $.get("https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + drinkID, function (data) {
+      console.log(data)
+      const $pglass = $("<p>").text("Preferred Glass: " + data.drinks[0].strGlass)
+      const $pinstruct = $("<p>").text("Instructions: " + data.drinks[0].strInstructions)
+      $(".drink-info-wrapper").append($pglass, $pinstruct);
     });
 
 
   });
 });
+
+let drinkName;
+let savedDrinks = []
+$(".save-drink-btn").on("click", function (e) {
+  // localStorage.getItem("savedDrinks");
+  e.preventDefault();
+  if (!drinkName || savedDrinks.includes(drinkName)) return ;
+  savedDrinks.push(drinkName);
+  localStorage.setItem("savedDrinks", JSON.stringify(savedDrinks));
+})
