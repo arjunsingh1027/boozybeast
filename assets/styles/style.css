@@ -72,6 +72,8 @@ html {
 
 .drink-card img {
   border: 5px solid black;
+  max-width: 300px;
+  height: auto;
 }
 
 .movie-card {
@@ -219,5 +221,48 @@ hr {
 
 .clear-btn {
   margin-top: .5rem;
+}
+
+@media screen and (max-width: 1050px) {
+  .content {
+    -ms-grid-columns: 2fr 35vw 1fr 35vw 2fr;
+        grid-template-columns: 2fr 35vw 1fr 35vw 2fr;
+  }
+  .drink-card img {
+    max-width: 200px;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding: 1rem;
+    gap: 1rem;
+  }
+  .header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  header h1 {
+    margin-top: 4rem;
+  }
+  .movie-card {
+    margin-bottom: 3rem;
+  }
 }
 /*# sourceMappingURL=style.css.map */
