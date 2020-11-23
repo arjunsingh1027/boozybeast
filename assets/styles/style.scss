@@ -178,7 +178,7 @@ hr {
     margin-top: .5rem;
 }
 
-@media screen and (max-width: 1050px) {
+@media screen and (max-width: 1200px) {
   .content {
     grid-template-columns: 2fr 35vw 1fr 35vw 2fr;
   }
@@ -210,3 +210,4 @@ hr {
     margin-bottom: 3rem;
   }
 }
+
